@@ -1,0 +1,82 @@
+/* Main Buttons */
+
+.btn-filled {
+  width: min-content;
+  margin-right: 0.8em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 0.7em;
+  padding-right: 0.7em;
+  border-radius: 10px;
+  background-color: black;
+  color: rgb(157, 200, 240);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+.btn-filled:hover {
+  cursor: pointer;
+  background-color: rgb(109, 158, 204);
+  color: black;
+}
+
+.btn-outlined {
+  width: min-content;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 0.7em;
+  padding-right: 0.7em;
+  border-radius: 10px;
+  background-color: transparent;
+  color: black;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+.btn-outlined:hover {
+  background-color: rgb(109, 158, 204);
+  cursor: pointer;
+}
+
+/* Buttons Delete/Edit/Done */
+
+.btn.btn-success {
+  float: right;
+  font-weight: normal;
+  max-width: fit-content;
+}
+
+.btn.btn-error {
+  float: right;
+  margin-left: 0.5em;
+}
+
+.btn.btn-success.btn-edit {
+  margin-left: 10px;
+  border: 0;
+  background-color: goldenrod;
+}
+
+.btn.btn-success.btn-done {
+  margin: 1%;
+  border: 0;
+}
+
+/* Logout Button */
+
+.btn-logout {
+  margin-top: 18px;
+  font-size: 8pt;
+  border-radius: 10px;
+  background-color: transparent;
+  color: black;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+
+.btn-logout:hover {
+  background-color: #f8a29c;
+  cursor: pointer;
+}

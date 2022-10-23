@@ -1,0 +1,77 @@
+<h3>Have a question? Submit it here!</h3>
+
+{{#if errorMessages.length}}
+  <div class="error-messages-container">
+    <div>Couldn't create question because:</div>
+    <ul>
+      {{#each errorMessages}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  </div>
+{{/if}}
+
+<form action="/q-and-a-page" method="post">
+  <div class="question-textarea-container">
+    <textarea
+      class="question-textarea"
+      name="question"
+      cols="40"
+      rows="5"
+      placeholder="Insert question here..."
+    ></textarea>
+    <input class="btn-filled" type="submit" value="POST" />
+  </div>
+</form>
+
+{{#if questions.length}}
+  {{#each questions}}
+    <div class="questions-and-answers-divider">
+      <table class="table">
+        <div id="question/{{questionid}}">
+          <thead>
+            <tr>
+              <th class="question-title">Question:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="active">
+              <td class="scroll">{{question}}</td>
+              <td>
+                {{#if ../isLoggedIn}}
+                  <form action="/delete-questions/{{questionid}}" method="post">
+                    <input class="btn btn-error" type="submit" value="DELETE" />
+                  </form>
+                  {{#unless answers.answerid}}
+                    <a href="/add-answer/{{questionid}}" class="btn btn-success">ADD ANSWER</a>
+                  {{/unless}}
+                {{/if}}
+              </td>
+            </tr>
+            <tr>
+              {{#if answers}}
+                <thead>
+                  <tr>
+                    <th class="answer-title">Answer:</th>
+                  </tr>
+                </thead>
+                <tr class="active">
+                  <td class="scroll">{{answers.answer}}</td>
+                  <td>
+                    {{#if ../isLoggedIn}}
+                      <form action="/edit-answer/{{answers.answerid}}" method="get">
+                        <a href="/edit-answer/{{answers.answerid}}" class="btn btn-success btn-edit">EDIT</a>
+                      </form>
+                    {{/if}}
+                  </td>
+                </tr>
+              {{/if}}
+            </tr>
+          </tbody>
+        </div>
+      </table>
+    </div>
+  {{/each}}
+{{else}}
+  <p>No questions submitted.</p>
+{{/if}}

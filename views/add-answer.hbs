@@ -1,0 +1,48 @@
+{{#if question}}
+
+  {{#if errorMessages.length}}
+    <div class="error-messages-container">
+      <div>Couldn't add answer because:</div>
+      <ul>
+        {{#each errorMessages}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
+
+  <div class="add-answer-question-container" id="{{question.questionid}}">
+    <td>
+      <p class="input-title">Question:</p>
+      <p>{{question.question}}</p>
+    </td>
+  </div>
+
+  <form action="/add-answer/{{question.questionid}}" method="post">
+    <div class="answer-container add">
+      <div class="input-container">
+        <p class="input-title">Add an answer</p>
+        <input name="answer" type="text" placeholder="Answer..." />
+      </div>
+    </div>
+    <input type="submit" class="btn btn-success btn-done" value="DONE" />
+  </form>
+
+{{else}}
+  <div class="text-container">
+    <h1>404 page could not be found</h1>
+    <p>The page you are looking for is beyond your reach. Either it does not exist anymore, or perhaps it never
+      existed...</p>
+    <div class="paragraph-break"></div>
+    <h2>Let us guide you to a page that does exist!</h2>
+    <div class="paragraph-break"></div>
+    <div>
+      <a href="/">
+        <button class="btn-filled">HOME</button>
+      </a>
+      <a href="/contact-page">
+        <button class="btn-outlined">CONTACT</button>
+      </a>
+    </div>
+  </div>
+{{/if}}

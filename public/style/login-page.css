@@ -1,0 +1,21 @@
+.main-login-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10%;
+  margin-left: 30%;
+  margin-right: 30%;
+  padding: 2em;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.form-input.login {
+  margin-bottom: 1em;
+}

@@ -1,0 +1,46 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfoliou</title>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css" />
+    <link rel="stylesheet" href="/style/main.css" />
+    <link rel="stylesheet" href="/style/q-and-a-page.css" />
+    <link rel="stylesheet" href="/style/login-page.css" />
+    <link rel="stylesheet" href="/style/blogposts-page.css" />
+    <link rel="stylesheet" href="/style/buttons.css" />
+    <link rel="stylesheet" href="/style/media-queries.css" />
+  </head>
+  <body>
+    <main>
+      <nav>
+        <div class="navbar-container">
+          <a href="/">HOME</a>
+          <a href="/submit-page">SUBMIT</a>
+          <a href="/blogposts-page">BLOGPOSTS</a>
+          <a class="logo" href="/">
+            <img src="/icons/logotype-portfoliou.svg" alt="Logotype Portfoliou" width="60px" />
+          </a>
+          <a href="/q-and-a-page">Q&amp;A</a>
+          <a href="/contact-page">CONTACT</a>
+          <a href="/about-page">ABOUT</a>
+          {{#unless isLoggedIn}}
+            <a href="/login-page">
+              <img src="/icons/profile-icon.svg" alt="Profile Icon" width="25px" />
+            </a>
+          {{/unless}}
+          {{#if isLoggedIn}}
+            <form action="/logout" method="post">
+              <input class="btn-logout" type="submit" value="LOGOUT" />
+            </form>
+          {{/if}}
+        </div>
+      </nav>
+      {{{body}}}
+    </main>
+    <footer><em>Portfoliou<br />Designed &amp; Built by LH</em></footer>
+  </body>
+</html>

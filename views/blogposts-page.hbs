@@ -1,0 +1,68 @@
+<h3>Blogposts!</h3>
+
+{{#if errorMessages.length}}
+  <div class="error-messages-container">
+    <div>Couldn't create blogpost because:</div>
+    <ul>
+      {{#each errorMessages}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  </div>
+{{/if}}
+
+{{#if isLoggedIn}}
+  <form action="/blogposts-page" method="post">
+    <div class="blogpost-form-main-container">
+      <div class="blogpost-form-container">
+        <div class="input-container">
+          <p class="input-title">Title</p>
+          <input class="input-box" name="title" type="text" placeholder="Insert here..." />
+        </div>
+        <div class="input-container">
+          <p class="input-title">Category</p>
+          <select name="category">
+            <option value="Tips">Tips</option>
+            <option value="Web Development">Web Development</option>
+            <option value="Portfoliou">Portfoliou</option>
+            <option value="Suggestions">Suggestions</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="input-container">
+          <p class="input-title">Content</p>
+          <textarea name="content" id="content" cols="20" rows="10" placeholder="Insert here..."></textarea>
+        </div>
+      </div>
+      <input class="btn-filled" type="submit" value="POST" />
+    </div>
+  </form>
+{{/if}}
+
+{{#if blogposts.length}}
+  {{#each blogposts}}
+    <div class="blogpost-main-container" id="blogposts-page/{{blogpostid}}">
+      <div class="blogpost-container">
+        {{#if ../isLoggedIn}}
+          <div class="btns-blogpost-container">
+            <form action="/delete-blogposts/{{blogpostid}}" method="post">
+              <td>
+                <input class="btn btn-error" type="submit" value="DELETE" />
+              </td>
+            </form>
+            <form action="/edit-blogpost/{{blogpostid}}" method="get">
+              <td>
+                <a href="/edit-blogpost/{{blogpostid}}" class="btn btn-success btn-edit">EDIT</a>
+              </td>
+            </form>
+          </div>
+        {{/if}}
+        <h4>{{title}}</h4>
+        <h5>{{category}}</h5>
+        <p class="blogpost-content">{{content}}</p>
+      </div>
+    </div>
+  {{/each}}
+{{else}}
+  <p>No blogposts posted.</p>
+{{/if}}

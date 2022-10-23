@@ -1,0 +1,61 @@
+/* Blogpost Form Container */
+
+.blogpost-form-main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 6em;
+  margin-right: 6em;
+  padding: 1.5em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.blogpost-form-container {
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  padding-right: 1.5em;
+  border-radius: 15px;
+  background-color: white;
+}
+
+/* Blogpost Post Container */
+
+.blogpost-main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 6em;
+  margin-right: 6em;
+  padding: 1.5em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.blogpost-container {
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 15px;
+  background-color: white;
+}
+
+.btns-blogpost-container {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.blogpost-content {
+  max-width: 100%;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  padding: 1.6em;
+  font-size: 10pt;
+}

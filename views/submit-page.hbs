@@ -1,0 +1,62 @@
+<h3>Submit Your Software Portfolio!</h3>
+
+{{#if errorMessages.length}}
+  <div class="error-messages-container">
+    <div>Couldn't create submission because:</div>
+    <ul>
+      {{#each errorMessages}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  </div>
+{{/if}}
+
+<form action="/submit-page" method="post">
+  <div class="form-main-container">
+    <div class="form-container">
+      <div class="input-container">
+        <label class="input-title">E-mail</label>
+        <input class="input-box" name="email" type="text" placeholder="Insert here..." />
+      </div>
+      <div class="input-container">
+        <label class="input-title">Portfolio URL</label>
+        <input class="input-box" type="text" name="url" placeholder="Insert here..." />
+      </div>
+      <div class="input-container">
+        <label class="input-title">Description</label>
+        <input class="input-box" name="description" type="text" placeholder="Insert here..." />
+      </div>
+    </div>
+    <input class="btn-outlined" type="submit" value="SUBMIT" />
+  </div>
+</form>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th class="list-title">E-mail</th>
+      <th class="list-title">Portfolio URL</th>
+      <th class="list-title">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#if submissions.length}}
+      {{#each submissions}}
+        <tr class="active">
+          <td class="scroll">{{email}}</td>
+          <td class="scroll">{{url}}</td>
+          <td class="scroll">{{description}}</td>
+          {{#if ../isLoggedIn}}
+            <form action="/delete-submissions/{{submissionid}}" method="post">
+              <td>
+                <input class="btn btn-error" type="submit" value="DELETE" />
+              </td>
+            </form>
+          {{/if}}
+        </tr>
+      {{/each}}
+    {{else}}
+      <p>No portfolios submitted.</p>
+    {{/if}}
+  </tbody>
+</table>
